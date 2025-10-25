@@ -1,0 +1,15 @@
+requests
+opentelemetry-api==1.38.0
+opentelemetry-exporter-otlp==1.38.0
+opentelemetry-exporter-otlp-proto-common==1.38.0
+opentelemetry-exporter-otlp-proto-grpc==1.38.0
+opentelemetry-exporter-otlp-proto-http==1.38.0
+opentelemetry-instrumentation==0.59b0
+opentelemetry-instrumentation-aws-lambda==0.59b0
+opentelemetry-instrumentation-botocore==0.59b0
+opentelemetry-propagator-aws-xray==1.0.2
+opentelemetry-proto==1.38.0
+opentelemetry-sdk==1.38.0
+opentelemetry-semantic-conventions==0.59b0
+packaging==25.0
+protobuf==6.33.0
