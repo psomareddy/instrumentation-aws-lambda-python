@@ -1,8 +1,9 @@
 import json
 import logging
+
 from opentelemetry import trace
 
-logger = logging.getLogger()
+logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # Get a Tracer instance
@@ -22,4 +23,4 @@ def lambda_handler(event, context):
 
 @tracer.start_as_current_span("do_work")
 def do_work():
-    logger.info(f'do work')
+    logger.info(f'Executing method do_work')
