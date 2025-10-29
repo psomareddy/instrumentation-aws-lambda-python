@@ -7,8 +7,22 @@ receivers:
         endpoint: "localhost:4318"
 
 exporters:
+  otlp:
+    endpoint: "${env:SPLUNK_GATEWAY_URL}:4317"
+    tls:
+      insecure: true # Set to false and configure client_ca_file, client_key_file, client_cert_file for secure connections
+    compression: gzip # Optional: none, gzip, snappy (default is gzip)
+    timeout: 10s # Optional: Export timeout
+    sending_queue:
+      queue_size: 1000 # Optional: Size of the sending queue
+      num_consumers: 10 # Optional: Number of consumers
+    retry_on_failure:
+      enabled: true # Optional: Enable retry on failure
+      initial_interval: 5s # Optional: Initial retry interval
+      max_interval: 30s # Optional: Maximum retry interval
+      max_elapsed_time: 5m # Optional: Maximum elapsed time for retries
   otlphttp:
-    endpoint: "${env:OTEL_GATEWAY_ENDPOINT}"
+    endpoint: "${env:SPLUNK_GATEWAY_URL}:4318"
     tls:
       "insecure": true
 
@@ -19,10 +33,10 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      exporters: [otlphttp]
+      exporters: [otlp]
     metrics:
       receivers: [otlp]
-      exporters: [otlphttp]
+      exporters: [otlp]
     logs:
       receivers: [otlp]
-      exporters: [otlphttp]
+      exporters: [otlp]

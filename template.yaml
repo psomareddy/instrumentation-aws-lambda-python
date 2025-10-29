@@ -26,9 +26,7 @@ Resources:
         Variables:
           AWS_LAMBDA_EXEC_WRAPPER: /opt/otel-instrument
           OPENTELEMETRY_COLLECTOR_CONFIG_URI: /opt/collector.yaml
-          OTEL_GATEWAY_ENDPOINT: "http://52.91.30.252:4318"
-          OTEL_GATEWAY_PROTOCOL: "http/protobuf"
-          OTEL_TRACES_EXPORTER: "console, otlp"
+          SPLUNK_GATEWAY_URL: "http://52.91.30.252"
           OTEL_SERVICE_NAME: "aws-lambda-python-opentelemetry-example"
           OTEL_RESOURCE_ATTRIBUTES: "deployment.environment=staging"
           OTEL_LOG_LEVEL: "INFO"
